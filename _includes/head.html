@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+<!-- Google Fonts: Dela Gothic One, Space Grotesk, Plus Jakarta Sans, Fira Code, JetBrains Mono, IBM Plex Mono, Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Fira+Code:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon-192x192.png' | relative_url }}">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+<!-- Custom Typography Preserved From Prototype -->
+<style id="custom-typography">
+  nav a, .nav-item, nav { font-family: 'Fira Code', monospace !important; }
+  h1, .hero-title, .title-bold, .intro-title, .view-title { font-family: 'Dela Gothic One', sans-serif !important; }
+  h2, h3, .project-title, .blog-title, .post-title, .entry-title, .section-head h2 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 600 !important; }
+  p, .bio-text, .description, .post-excerpt, .item-desc { font-family: 'Plus Jakarta Sans', sans-serif !important; font-weight: 400 !important; line-height: 1.65 !important; }
+  .date, .post-date, time, .meta, .item-date { font-family: 'JetBrains Mono', monospace !important; letter-spacing: 0.03em !important; }
+  a.read-more, a.external, .contact-card a, .action-link, .back-link { font-family: 'IBM Plex Mono', monospace !important; font-weight: 500 !important; }
+  footer, .footer-text { font-family: 'Fira Code', monospace !important; font-size: 0.8rem !important; }
+</style>
+
+<!-- Inline Theme Initialization to Prevent FOUC -->
+<script>
+  (function() {
+    var savedTheme = localStorage.getItem('theme_pref');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>

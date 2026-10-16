@@ -1,0 +1,27 @@
+---
+layout: default
+title: "Projects"
+permalink: /projects/
+---
+<div class="view-header-row">
+  <div class="view-title-wrap">
+    <h1 class="view-title mono">Projects</h1>
+  </div>
+</div>
+
+<div class="minimal-list" id="projectList">
+  {% for project in site.data.projects %}
+  <div class="list-item project-entry" data-name="{{ project.tags | default: project.title | downcase }}">
+    <div class="item-title mono" style="margin-bottom: 0.25rem;">{{ project.title }}</div>
+    <p class="item-desc">{{ project.description }}</p>
+    <div class="item-links mono">
+      {% if project.read_more_url %}
+      <a href="{{ project.read_more_url }}" target="_blank" rel="noopener">Read more →</a>
+      {% endif %}
+      {% if project.github_url %}
+      <a href="{{ project.github_url }}" target="_blank" rel="noopener">GitHub</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div class="container">
+    {% include nav.html %}
+
+    <main class="view-panel">
+      {{ content }}
+    </main>
+
+    <!-- Toast Alert for copying email -->
+    <div class="toast" id="copyToast">
+      {{ site.data.contact.email }} copied to clipboard
+    </div>
+
+    {% include footer.html %}
+  </div>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

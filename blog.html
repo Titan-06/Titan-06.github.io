@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Blog"
+permalink: /blog/
+---
+<div class="view-header-row">
+  <div class="view-title-wrap">
+    <h1 class="view-title mono">Blog</h1>
+  </div>
+</div>
+
+<div class="minimal-list" id="blogList">
+  {% if site.posts.size > 0 %}
+    {% for post in site.posts %}
+      <div class="list-item blog-entry" data-name="{{ post.title | downcase }} {{ post.description | downcase }}">
+        <div class="list-item-header">
+          <a class="mono item-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span class="mono item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </div>
+        <p class="item-desc">{{ post.description }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="item-desc mono" style="margin-top: 2rem; text-align: center;">
+      Nothing to see here Right now
+    </p>
+  {% endif %}
+</div>

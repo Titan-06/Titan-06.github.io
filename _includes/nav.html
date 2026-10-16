@@ -1,0 +1,24 @@
+<!-- Clean Minimalist Navigation -->
+<nav class="site-nav">
+  <div class="nav-left">
+    <a class="nav-btn {% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+    <a class="nav-btn {% if page.url contains '/projects' %}active{% endif %}" href="{{ '/projects/' | relative_url }}">Projects</a>
+    <a class="nav-btn {% if page.url contains '/blog' or page.layout == 'post' %}active{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a>
+    <a class="nav-btn {% if page.url contains '/contact' %}active{% endif %}" href="{{ '/contact/' | relative_url }}">Contact</a>
+  </div>
+  <div class="nav-right">
+    <!-- Theme Toggle -->
+    <button aria-label="Toggle dark/light theme" class="icon-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Theme">
+      <span id="themeIcon">☀️</span>
+    </button>
+    <script>
+      (function() {
+        var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        var icon = document.getElementById('themeIcon');
+        if (icon) {
+          icon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+      })();
+    </script>
+  </div>
+</nav>
