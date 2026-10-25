@@ -4,7 +4,7 @@ title: "The Empirical Analysis of Chess Search Algorithms Used in Menso, the C C
 date: 2026-10-25
 description: "My thoughts on the necessity of Negamax, Alpha beta pruning, Move Ordering and Quiesence Search with Data to measure its impact on the engine. "
 ---
-I started [this project](https://github.com/Titan-06/ChessEngine) on 15th September, a bit after I finished working on a [mark and sweep GC](https://github.com/Titan-06/garbageCollector-C). I keep a list of projects I want to work on in my notes app, and scrolling through it, the chess engine seemed really interesting. I got that idea initially after seeing [sameshi](https://github.com/datavorous/sameshi), which is a 2KB, 1200 Elo engine. Though my goal was a bit different, I wanted to make a chess engine in 10 days, trying to maximise the Elo and see where I end up in the end.
+I started [this project](https://github.com/Titan-06/Menso) on 15th September, a bit after I finished working on a [mark and sweep GC](https://github.com/Titan-06/garbageCollector-C). I keep a list of projects I want to work on in my notes app, and scrolling through it, the chess engine seemed really interesting. I got that idea initially after seeing [sameshi](https://github.com/datavorous/sameshi), which is a 2KB, 1200 Elo engine. Though my goal was a bit different, I wanted to make a chess engine in 10 days, trying to maximise the Elo and see where I end up in the end.
 
 I am writing this article a day after "completing" the chess engine on 23 October. Yep... it took me way more than a month. One reason for that is that my midsems exam got in the way :P
 
@@ -16,7 +16,7 @@ The other reason was a shift in how I made projects. Rather than implementing th
 
 This article summarises what prompted me to add the algorithms/optimisations and exactly how they impacted the engine, with proper data (and some of my hypotheses about why we got those numbers).
 
-**A shorter, more formal version of the experimental analysis is available in analysis.md in the [repository](https://github.com/Titan-06/ChessEngine).**
+**A shorter, more formal version of the experimental analysis is available in analysis.md in the [repository](https://github.com/Titan-06/Menso).**
 
 Though, before making the engine, we have to make the game first. Let's go over quickly what resources I used and what hurdles I faced while making the game (Spoiler: It was a lot).
 
@@ -507,7 +507,7 @@ And I got the data to support this!
 
 ## v4 (Quiescence) vs v3 (MVV-LVA)
 
-I put both engines against each other across 100 games. To avoid repeating the same games, I used [openings.pgn]() to test them properly in multiple situations with [cutechess-cli](https://github.com/cutechess/cutechess). The v4 engine looks at more nodes and spends a bit more time than v3, but the conclusion still holds.
+I put both engines against each other across 100 games. To avoid repeating the same games, I used [openings.pgn](https://github.com/Titan-06/Menso/blob/main/openings.pgn) to test them properly in multiple situations with [cutechess-cli](https://github.com/cutechess/cutechess). The v4 engine looks at more nodes and spends a bit more time than v3, but the conclusion still holds.
 
 v4 should be smarter than v3, right? Let's see how the games went.
 
