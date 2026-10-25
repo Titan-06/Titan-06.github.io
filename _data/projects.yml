@@ -1,8 +1,8 @@
-- title: "Chess Engine ( Still in the works... )"
+- title: "Menso"
   tags: "c chess engine 0x88 minimax alpha-beta bitwise move generation off-board"
-  description: "A C chess engine with 0x88 board representation, and alpha-beta pruning with movegen"
-  read_more_url: "https://github.com/Titan-06/ChessEngine"
-  github_url: "https://github.com/Titan-06/ChessEngine"
+  description: "Chess Engine written in C with an elo between 1800-2000 against Stockfish at fixed depth-5"
+  read_more_url: "https://titan-06.github.io/blog/analysis-chess-engine/"
+  github_url: "https://github.com/Titan-06/Menso"
 
 - title: "Mark and Sweep GC"
   tags: "mark and sweep garbage collector gc virtual machine heap reachability memory management"
