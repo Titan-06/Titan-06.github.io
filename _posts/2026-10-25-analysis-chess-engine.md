@@ -4,9 +4,6 @@ title: "The Empirical Analysis of Chess Search Algorithms Used in Menso, the C C
 date: 2026-10-25
 description: "My thoughts on the necessity of Negamax, Alpha beta pruning, Move Ordering and Quiesence Search with Data to measure its impact on the engine. "
 ---
-
-# The Empirical Analysis of Chess Search Algorithms Used in Menso, the C Chess Engine
-
 I started [this project](https://github.com/Titan-06/ChessEngine) on 15th September, a bit after I finished working on a [mark and sweep GC](https://github.com/Titan-06/garbageCollector-C). I keep a list of projects I want to work on in my notes app, and scrolling through it, the chess engine seemed really interesting. I got that idea initially after seeing [sameshi](https://github.com/datavorous/sameshi), which is a 2KB, 1200 Elo engine. Though my goal was a bit different, I wanted to make a chess engine in 10 days, trying to maximise the Elo and see where I end up in the end.
 
 I am writing this article a day after "completing" the chess engine on 23 October. Yep... it took me way more than a month. One reason for that is that my midsems exam got in the way :P
@@ -229,8 +226,9 @@ This is where we go from game to engine. It will be considered the **baseline** 
 
 The data we got at depths 4 and 5 for all the different positions are as follows:
 
-**Depth 4 Search Results**
 
+
+**Depth 4 Search Results**
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 206603 | 0.316 | 653684.913 | 21.32 |
@@ -240,8 +238,9 @@ The data we got at depths 4 and 5 for all the different positions are as follows
   | 5 | 2167396 | 2.526 | 857904.420 | 38.37 |
   | 6 | 3986609 | 4.300 | 927101.986 | 44.68 |
 
-**Depth 5 Search Results**
 
+
+**Depth 5 Search Results**
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 5072212 | 6.666 | 760917.365 | 21.94 |
@@ -263,8 +262,9 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
   Once it is implemented, this is what the data looks like at depths 4 and 5 on the same positions we used:
   
-**Depth 4 Search Results**
 
+
+**Depth 4 Search Results**
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 8258 | 0.028 | 291092.390 | 9.53 |
@@ -274,8 +274,9 @@ The data we got at depths 4 and 5 for all the different positions are as follows
   | 5 | 28982 | 0.095 | 303708.594 | 13.05 |
   | 6 | 62474 | 0.277 | 225446.750 | 15.81 |
 
-**Depth 5 Search Results**
 
+
+**Depth 5 Search Results**
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 216592 | 0.408 | 530910.891 | 11.67 |
@@ -297,8 +298,9 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
   The major thing we can take from here is that we finally reduced the massive number of nodes being evaluated:
 
-**Depth 4: Node Count Reduction (v1 vs. v2)**
 
+
+**Depth 4: Node Count Reduction (v1 vs. v2)**
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | Node Reduction (%) |
 | :---: | :---: | :---: | :---: |
 | **1** | 206,603 | 8,258 | 96.00% |
@@ -308,8 +310,9 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 | **5** | 2,167,396 | 28,982 | 98.66% |
 | **6** | 3,986,609 | 62,474 | 98.43% |
 
-**Depth 5: Node Count Reduction (v1 vs. v2)**
 
+
+**Depth 5: Node Count Reduction (v1 vs. v2)**
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | Node Reduction (%) |
 | :---: | :---: | :---: | :---: |
 | **1** | 5,072,212 | 216,592 | 95.73% |
@@ -331,8 +334,9 @@ Are there better ways or additional things we can do for better move ordering? Y
 
 The data from this version are as follows:
 
-**Depth 4 Search Results**
 
+
+**Depth 4 Search Results**
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 7328 | 0.029 | 253108.594 | 9.25 |
@@ -342,8 +346,9 @@ The data from this version are as follows:
 | 5 | 5051 | 0.041 | 122205.555 | 8.43 |
 | 6 | 19164 | 0.090 | 212489.466 | 11.77 |
 
-**Depth 5 Search Results**
 
+
+**Depth 5 Search Results**
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 93084 | 0.308 | 302625.590 | 9.86 |
@@ -363,8 +368,9 @@ This is interesting... the node count and NPS both went down, with some position
 
 Let's look at the data for node reduction across all the positions:
 
-**Depth 4: v3 (MVV-LVA) Node Reduction vs. v1 and v2**
 
+
+**Depth 4: v3 (MVV-LVA) Node Reduction vs. v1 and v2**
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | v3 Nodes (MVV-LVA) | Reduction vs v1 (%) | Reduction vs v2 (%) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | 206,603 | 8,258 | 7,328 | 96.45% | 11.26% |
@@ -374,8 +380,9 @@ Let's look at the data for node reduction across all the positions:
 | **5** | 2,167,396 | 28,982 | 5,051 | 99.77% | 82.57% |
 | **6** | 3,986,609 | 62,474 | 19,164 | 99.52% | 69.32% |
 
-**Depth 5: v3 (MVV-LVA) Node Reduction vs. v1 and v2**
 
+
+**Depth 5: v3 (MVV-LVA) Node Reduction vs. v1 and v2**
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | v3 Nodes (MVV-LVA) | Reduction vs v1 (%) | Reduction vs v2 (%) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | 5,072,212 | 216,592 | 93,084 | 98.16% | 57.02% |
@@ -418,8 +425,9 @@ I needed to fix this first, so I did three major things to try to make the searc
 
 All these changes actually made the entire search faster because nodes in quiescence search were cheaper to go through than normal moves in alpha-beta pruning, so NPS increased. Though, since I added all of them together, I couldn't test how much each contributed to making the search faster. My guess is that the fixed depth of 2 helped, but yeah, further testing will be needed here.
 
-**Depth 4 Search Results**
 
+
+**Depth 4 Search Results**
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 14668 | 0.055 | 266148.933 | 11.01 |
@@ -429,8 +437,9 @@ All these changes actually made the entire search faster because nodes in quiesc
 | 5 | 8443 | 0.047 | 180286.562 | 9.58 |
 | 6 | 43901 | 0.141 | 310254.417 | 14.48 |
 
-**Depth 5 Search Results**
 
+
+**Depth 5 Search Results**
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 138809 | 0.441 | 314871.734 | 10.68 |
@@ -448,8 +457,9 @@ The data really reflects the essence of quiescence search:
 
 - The numbers fluctuate a bit across positions and depths, depending on how many capturing moves were available after the fixed-depth search.
 
-### Depth 4: Node Expansion (v3 vs. v4)
 
+
+### Depth 4: Node Expansion (v3 vs. v4)
 | Position | v3 Nodes (MVV-LVA) | v4 Nodes (Quiescence) | Additional Nodes | Node Increase (%) |
 | :---: | :---: | :---: | :---: | :---: |
 | **1** | 7,328 | 14,668 | +7,340 | +100.16% |
@@ -459,8 +469,9 @@ The data really reflects the essence of quiescence search:
 | **5** | 5,051 | 8,443 | +3,392 | +67.15% |
 | **6** | 19,164 | 43,901 | +24,737 | +129.08% |
 
-### Depth 5: Node Expansion (v3 vs. v4)
 
+
+### Depth 5: Node Expansion (v3 vs. v4)
 | Position | v3 Nodes (MVV-LVA) | v4 Nodes (Quiescence) | Additional Nodes | Node Increase (%) |
 | :---: | :---: | :---: | :---: | :---: |
 | **1** | 93,084 | 138,809 | +45,725 | +49.12% |
@@ -484,8 +495,9 @@ v4 should be smarter than v3, right? Let's see how the games went.
 
 **Note:** I couldn't implement iterative deepening and time management for the bot. So all games were played at a fixed depth of 5 with an infinite time control.
 
-**Match Summary: v4_quiesce vs. v3_mvvlva**
 
+
+**Match Summary: v4_quiesce vs. v3_mvvlva**
 | Matchup | Result (W - L - D) | Score | Total Games |
 | :--- | :---: | :---: | :---: |
 | **Total Score (v4 vs. v3)** | 46 – 3 – 51 | 71.5 / 100 (0.715) | 100 |
@@ -493,16 +505,18 @@ v4 should be smarter than v3, right? Let's see how the games went.
 | **v4_quiesce playing Black** | 28 – 3 – 19 | 37.5 / 50 (0.750) | 50 |
 | **White vs. Black** | 21 – 28 – 51 | 46.5 / 100 (0.465) | 100 |
 
-**Match Statistics**
 
+
+**Match Statistics**
 | Metric | Value |
 | :--- | :--- |
 | **Elo difference** | +159.8 +/- 46.5 |
 | **LOS (Likelihood of Superiority)** | 100.0% |
 | **DrawRatio** | 51.0% |
 
-**Game Terminations (v4_quiesce)**
 
+
+**Game Terminations (v4_quiesce)**
 | Condition | Count |
 | :--- | :---: |
 | **Draw by threefold repetition** | 51 |
@@ -542,7 +556,6 @@ This is how it went:
 
 
 ### Rating table
-
 | Rank | Player | Elo (relative to SF1800 = 0) | +/- (margin of error) | Games played | Score (wins + ½ per draw, as % of games) | Draws (% of games drawn) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|
 | 0 | v4_quiesce | 94 | 33 | 400 | 63.2% | 14.0% |
@@ -551,8 +564,9 @@ This is how it went:
 | 3 | SF1600 | -160 | 73 | 100 | 28.5% | 9.0% |
 | 4 | SF1400 | -512 | 140 | 100 | 5.0% | 8.0% |
 
-### v4_quiesce record by opponent
 
+
+### v4_quiesce record by opponent
 | Opponent | Wins | Draws | Losses | Score |
 |:---:|:---:|:---:|:---:|:---:|
 | SF1400 | 91 | 8 | 1 | 95.0% |
@@ -561,8 +575,9 @@ This is how it went:
 | SF2000 | 28 | 17 | 55 | 36.5% |
 | **Total** | **225** | **56** | **119** | **63.2%** |
 
-### How the games ended
 
+
+### How the games ended
 Each column is counted from that player's own point of view.
 
 | Result | v4_quiesce | SF1400 | SF1600 | SF1800 | SF2000 |
