@@ -69,4 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (icon) {
     icon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
   }
+
+  // 6. Responsive Table Wrapper in Posts
+  document.querySelectorAll('.post-content table').forEach(table => {
+    if (!table.parentElement.classList.contains('table-wrapper')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
 });
+

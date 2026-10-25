@@ -17,6 +17,11 @@
   --input-bg: rgba(255, 255, 255, 0.05);
   --input-border: #31487A;
   --code-bg: rgba(0, 0, 0, 0.25);
+  --table-border: rgba(143, 179, 226, 0.28);
+  --table-header-bg: #1E2E4F;
+  --table-header-border: #8FB3E2;
+  --table-row-even: rgba(30, 46, 79, 0.35);
+  --table-row-hover: rgba(143, 179, 226, 0.08);
 }
 
 [data-theme="light"] {
@@ -29,6 +34,11 @@
   --input-bg: rgba(0, 0, 0, 0.04);
   --input-border: #8FB3E2;
   --code-bg: rgba(255, 255, 255, 0.6);
+  --table-border: rgba(49, 72, 122, 0.28);
+  --table-header-bg: rgba(49, 72, 122, 0.12);
+  --table-header-border: #31487A;
+  --table-row-even: rgba(49, 72, 122, 0.05);
+  --table-row-hover: rgba(49, 72, 122, 0.08);
 }
 
 * {
@@ -550,6 +560,115 @@ pre code {
 .post-description {
   margin-top: 0.75rem;
   font-style: italic;
+  color: var(--text-main);
+  opacity: 0.9;
+}
+
+/* Post Content Readability */
+.post-layout .post-content {
+  color: var(--text-main);
+  opacity: 1;
+}
+
+.post-layout .post-content p,
+.post-layout .post-content li {
+  color: var(--text-main);
+  opacity: 1;
+}
+
+.post-layout .post-content strong,
+.post-layout .post-content b {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.post-layout .post-content blockquote {
+  color: var(--text-main);
+  opacity: 0.92;
+}
+
+/* Responsive Table Container & Table Styling for Posts */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.75rem 0;
+  border: 1px solid var(--table-border);
+  border-radius: 6px;
+  background-color: var(--bg-base);
+}
+
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-main);
+  border: 1px solid var(--table-border);
+}
+
+.table-wrapper > table {
+  margin: 0;
+  border: none;
+}
+
+/* Remove outer borders when inside .table-wrapper to avoid doubling with container border */
+.table-wrapper > table tr > th:first-child,
+.table-wrapper > table tr > td:first-child {
+  border-left: none;
+}
+
+.table-wrapper > table tr > th:last-child,
+.table-wrapper > table tr > td:last-child {
+  border-right: none;
+}
+
+.table-wrapper > table thead tr:first-child > th {
+  border-top: none;
+}
+
+.table-wrapper > table tbody tr:last-child > td {
+  border-bottom: none;
+}
+
+.post-content thead {
+  background-color: var(--table-header-bg);
+}
+
+.post-content th {
+  padding: 0.75rem 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  border: 1px solid var(--table-border);
+  border-bottom: 2px solid var(--table-header-border);
+  letter-spacing: 0.015em;
+}
+
+.post-content td {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--table-border);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  vertical-align: middle;
+}
+
+.post-content tbody tr:nth-child(even) {
+  background-color: var(--table-row-even);
+}
+
+.post-content tbody tr:hover {
+  background-color: var(--table-row-hover);
+}
+
+.post-content td code,
+.post-content th code {
+  font-size: 0.85em;
+  padding: 0.1rem 0.35rem;
+  background: var(--code-bg);
+  border: 1px solid var(--table-border);
 }
 
 /* Toast Notification */
