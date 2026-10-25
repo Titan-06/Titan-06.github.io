@@ -228,7 +228,7 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
 
 
-**Depth 4 Search Results**
+### Depth 4 Search Results
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 206603 | 0.316 | 653684.913 | 21.32 |
@@ -240,7 +240,7 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
 
 
-**Depth 5 Search Results**
+### Depth 5 Search Results
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 5072212 | 6.666 | 760917.365 | 21.94 |
@@ -264,7 +264,7 @@ The data we got at depths 4 and 5 for all the different positions are as follows
   
 
 
-**Depth 4 Search Results**
+### Depth 4 Search Results
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 8258 | 0.028 | 291092.390 | 9.53 |
@@ -276,7 +276,7 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
 
 
-**Depth 5 Search Results**
+### Depth 5 Search Results
   | Positions | Nodes | Time spent (s) | NPS | EBF |
   | :---: | :---: | :---: | :---: | :---: |
   | 1 | 216592 | 0.408 | 530910.891 | 11.67 |
@@ -300,7 +300,7 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
 
 
-**Depth 4: Node Count Reduction (v1 vs. v2)**
+### Depth 4: Node Count Reduction (v1 vs. v2)
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | Node Reduction (%) |
 | :---: | :---: | :---: | :---: |
 | **1** | 206,603 | 8,258 | 96.00% |
@@ -312,7 +312,7 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
 
 
-**Depth 5: Node Count Reduction (v1 vs. v2)**
+### Depth 5: Node Count Reduction (v1 vs. v2)
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | Node Reduction (%) |
 | :---: | :---: | :---: | :---: |
 | **1** | 5,072,212 | 216,592 | 95.73% |
@@ -336,7 +336,7 @@ The data from this version are as follows:
 
 
 
-**Depth 4 Search Results**
+### Depth 4 Search Results
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 7328 | 0.029 | 253108.594 | 9.25 |
@@ -348,7 +348,7 @@ The data from this version are as follows:
 
 
 
-**Depth 5 Search Results**
+### Depth 5 Search Results
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 93084 | 0.308 | 302625.590 | 9.86 |
@@ -370,7 +370,7 @@ Let's look at the data for node reduction across all the positions:
 
 
 
-**Depth 4: v3 (MVV-LVA) Node Reduction vs. v1 and v2**
+### Depth 4: v3 (MVV-LVA) Node Reduction vs. v1 and v2
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | v3 Nodes (MVV-LVA) | Reduction vs v1 (%) | Reduction vs v2 (%) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | 206,603 | 8,258 | 7,328 | 96.45% | 11.26% |
@@ -382,7 +382,7 @@ Let's look at the data for node reduction across all the positions:
 
 
 
-**Depth 5: v3 (MVV-LVA) Node Reduction vs. v1 and v2**
+### Depth 5: v3 (MVV-LVA) Node Reduction vs. v1 and v2
 | Position | v1 Nodes (Negamax) | v2 Nodes (Alpha-Beta) | v3 Nodes (MVV-LVA) | Reduction vs v1 (%) | Reduction vs v2 (%) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | **1** | 5,072,212 | 216,592 | 93,084 | 98.16% | 57.02% |
@@ -427,7 +427,7 @@ All these changes actually made the entire search faster because nodes in quiesc
 
 
 
-**Depth 4 Search Results**
+### Depth 4 Search Results
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 14668 | 0.055 | 266148.933 | 11.01 |
@@ -439,7 +439,7 @@ All these changes actually made the entire search faster because nodes in quiesc
 
 
 
-**Depth 5 Search Results**
+### Depth 5 Search Results
 | Positions | Nodes | Time spent (s) | NPS | EBF |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 138809 | 0.441 | 314871.734 | 10.68 |
@@ -497,7 +497,7 @@ v4 should be smarter than v3, right? Let's see how the games went.
 
 
 
-**Match Summary: v4_quiesce vs. v3_mvvlva**
+### Match Summary: v4_quiesce vs. v3_mvvlva
 | Matchup | Result (W - L - D) | Score | Total Games |
 | :--- | :---: | :---: | :---: |
 | **Total Score (v4 vs. v3)** | 46 – 3 – 51 | 71.5 / 100 (0.715) | 100 |
@@ -507,7 +507,7 @@ v4 should be smarter than v3, right? Let's see how the games went.
 
 
 
-**Match Statistics**
+### Match Statistics
 | Metric | Value |
 | :--- | :--- |
 | **Elo difference** | +159.8 +/- 46.5 |
@@ -516,7 +516,7 @@ v4 should be smarter than v3, right? Let's see how the games went.
 
 
 
-**Game Terminations (v4_quiesce)**
+### Game Terminations (v4_quiesce)
 | Condition | Count |
 | :--- | :---: |
 | **Draw by threefold repetition** | 51 |
