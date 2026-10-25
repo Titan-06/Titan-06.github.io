@@ -238,6 +238,23 @@ main {
   margin-bottom: 0.3rem;
 }
 
+@media (max-width: 640px) {
+  .blog-entry .list-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .blog-entry .item-title {
+    line-height: 1.4;
+  }
+
+  .blog-entry .item-date {
+    font-size: 0.8rem;
+  }
+}
+
 .item-title {
   font-size: 1.05rem;
   font-weight: 600;

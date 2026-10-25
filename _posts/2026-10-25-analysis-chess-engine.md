@@ -16,7 +16,7 @@ The other reason was a shift in how I made projects. Rather than implementing th
 
 This article summarises what prompted me to add the algorithms/optimisations and exactly how they impacted the engine, with proper data (and some of my hypotheses about why we got those numbers).
 
-A shorter, more formal version of the experimental analysis is available in analysis.md in the [repository](https://github.com/Titan-06/ChessEngine).
+**A shorter, more formal version of the experimental analysis is available in analysis.md in the [repository](https://github.com/Titan-06/ChessEngine).**
 
 Though, before making the engine, we have to make the game first. Let's go over quickly what resources I used and what hurdles I faced while making the game (Spoiler: It was a lot).
 
