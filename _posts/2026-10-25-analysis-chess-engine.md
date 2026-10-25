@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Empirical Analysis of Chess Search Algorithms Used in Menso, the C Chess Engine"
+title: "The Empirical Analysis of Chess Search Algorithms Used in Menso, The C Chess Engine"
 date: 2026-10-25
 description: "My thoughts on the necessity of Negamax, Alpha beta pruning, Move Ordering and Quiesence Search with Data to measure its impact on the engine. "
 ---
