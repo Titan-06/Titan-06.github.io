@@ -259,10 +259,12 @@ The data we got at depths 4 and 5 for all the different positions are as follows
 
   Negamax evaluates EVERY SINGLE NODE of the tree to whatever depth we want it to. But is that really necessary? Some moves definitely put us in a much better position, so we don't need to go down other move paths, and some moves are so bad that we should assume the opponent will never play them. This is where we further add [**Alpha-Beta Pruning**](https://www.chessprogramming.org/Alpha-Beta) to solve this problem.
 
-  ## 2. Alpha-Beta Pruning
-  The node count becomes huge in any position where there are a lot of legal moves to play, but not every move is worth playing. We need to cut (prune) down the tree so we only look into moves that are worth it and put us in a better position down the line, considering that the opponent also plays their best move.
 
-  Once it is implemented, this is what the data looks like at depths 4 and 5 on the same positions we used:
+## 2. Alpha-Beta Pruning
+
+The node count becomes huge in any position where there are a lot of legal moves to play, but not every move is worth playing. We need to cut (prune) down the tree so we only look into moves that are worth it and put us in a better position down the line, considering that the opponent also plays their best move.
+
+Once it is implemented, this is what the data looks like at depths 4 and 5 on the same positions we used:
   
 
 
@@ -332,7 +334,8 @@ From the previous points, we can see that it becomes tough for alpha-beta prunin
 
 We need to give it the more aggressive moves first, such as captures and en passant. They have a higher chance of being good moves than quiet moves that don't capture anything. From this, the need for some sort of move ordering arises. Thus, we introduce [MVV-LVA](https://www.chessprogramming.org/MVV-LVA) (Most Valuable Victim – Least Valuable Attacker).
 
-  ## 3. MVV-LVA
+
+## 3. MVV-LVA
 
 The idea here is that once we generate the legal moves for a player, we sort them according to the Most Valuable Victim (QUEEN -> ROOK -> KNIGHT -> BISHOP -> PAWN) and the Least Valuable Attacker (PAWN -> BISHOP -> KNIGHT -> ROOK -> QUEEN -> KING). When capturing, we look for the most material points we can get while using a piece that is worth the least to us. This doesn't guarantee that the first move will be the best move, but it increases the chance of getting a good move at the start of the search.
 
@@ -411,6 +414,7 @@ Is the answer to that adding more heuristic knowledge, as we discussed in the se
 What if we just look ahead when we encounter capturing moves at the end of the alpha-beta search and continue until there aren't any capturing moves left? This will help us avoid slowing down the evaluation of every single node in the tree when there is no need for it. This is where we add Quiescence search.
 
 ## 4. Quiescence Search
+
 [Quiescence Search](https://www.chessprogramming.org/Quiescence_Search) looks into further capturing moves after your fixed depth search ends and it does so without any fixed depth. It will go until it doesn't have any capturing moves to look into.
 
 Thus, this would be very different from the previous three. Before, we were trying to reduce the node count and time spent. Now, with this search, the node count will increase A LOT!
